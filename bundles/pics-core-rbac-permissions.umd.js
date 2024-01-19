@@ -724,7 +724,7 @@
     AppConstants.regexEmail = '^[0-9a-zA-Z.-]+[@][0-9a-zA-Z.-]+[.][0-9a-zA-Z]{2,}$';
     AppConstants.iconList = [
         { label: 'Apps', value: 'apps' },
-        { label: 'Admin Setting', value: 'admin_panel_settings' },
+        { label: 'Admin Settings', value: 'admin_panel_settings' },
         { label: 'Description', value: 'description' },
         { label: 'Analytics', value: 'analytics' },
         { label: 'Settings', value: 'settings' },
@@ -1230,7 +1230,7 @@
             console.log();
         };
         PermissionsComponent.prototype.nodeSelect = function (event) {
-            var _a, _b, _c, _d;
+            var _a, _b, _c, _d, _e, _f;
             this.saveMode = 'UPDATE';
             this.showLinkPage = false;
             this.nodeType = event.node.type;
@@ -1241,8 +1241,9 @@
             else {
                 this.pageForm.reset();
                 this.pageForm.patchValue(event.node);
+                this.getSelectedLabel((_b = (_a = event.node) === null || _a === void 0 ? void 0 : _a.additionalinfo) === null || _b === void 0 ? void 0 : _b.icon);
                 this.pageForm.patchValue({
-                    icon: ((_a = event.node.additionalinfo) === null || _a === void 0 ? void 0 : _a.icon) || ''
+                    icon: ((_c = event.node.additionalinfo) === null || _c === void 0 ? void 0 : _c.icon) || ''
                 });
                 if (event.node.route.includes('/pages/dynamic-search/search')) {
                     this.showLinkPage = true;
@@ -1250,7 +1251,7 @@
                         route: event.node.route.split('/')[4]
                     });
                 }
-                this.imageInformation = ((_d = (_c = (_b = event.node.additionalinfo) === null || _b === void 0 ? void 0 : _b.thumbnail) === null || _c === void 0 ? void 0 : _c.fileName) === null || _d === void 0 ? void 0 : _d.split('/')[1]) || '';
+                this.imageInformation = ((_f = (_e = (_d = event.node.additionalinfo) === null || _d === void 0 ? void 0 : _d.thumbnail) === null || _e === void 0 ? void 0 : _e.fileName) === null || _f === void 0 ? void 0 : _f.split('/')[1]) || '';
             }
         };
         PermissionsComponent.prototype.nodeExpand = function (event) {
