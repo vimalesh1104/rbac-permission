@@ -49,6 +49,7 @@ export declare class PermissionsComponent implements OnInit {
     httpService: any;
     modelPermissiomName: string;
     iconList: any;
+    selectedIconLabel: any;
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;
@@ -58,6 +59,7 @@ export declare class PermissionsComponent implements OnInit {
     onNodeContextMenuSelect(_event: any): void;
     nodeSelect(event: any): void;
     nodeExpand(event: any): void;
+    getSelectedLabel(val: any): void;
     savePage(): void;
     savePermission(page?: any): void;
     clearForm(): void;
