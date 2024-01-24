@@ -899,6 +899,7 @@ class PermissionsComponent {
     }
     clearForm() {
         this.showIcon = '';
+        this.saveMode = 'INSERT';
         if (this.nodeType === 'permission') {
             this.initializePermissionForm();
         }
@@ -907,7 +908,7 @@ class PermissionsComponent {
         }
     }
     resetForm() {
-        this.saveMode = '';
+        this.saveMode = 'INSERT';
         this.imageInformation = '';
         this.pageForm.reset();
         this.clearForm();

@@ -1407,6 +1407,7 @@
         };
         PermissionsComponent.prototype.clearForm = function () {
             this.showIcon = '';
+            this.saveMode = 'INSERT';
             if (this.nodeType === 'permission') {
                 this.initializePermissionForm();
             }
@@ -1415,7 +1416,7 @@
             }
         };
         PermissionsComponent.prototype.resetForm = function () {
-            this.saveMode = '';
+            this.saveMode = 'INSERT';
             this.imageInformation = '';
             this.pageForm.reset();
             this.clearForm();
