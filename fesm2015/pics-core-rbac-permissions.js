@@ -809,11 +809,12 @@ class PermissionsComponent {
         this.iconList = this.dublicateIconList.filter((a) => { var _a; return (_a = a === null || a === void 0 ? void 0 : a.label) === null || _a === void 0 ? void 0 : _a.toLowerCase().startsWith(value); });
     }
     getSelectedLabel(val) {
+        var _a;
         this.iconList = this.dublicateIconList;
         console.log(val);
         const filteredIcon = this.iconList.filter((i) => i.value === val);
         console.log(filteredIcon);
-        this.selectedIconLabel = filteredIcon[0].label;
+        this.selectedIconLabel = (_a = filteredIcon[0]) === null || _a === void 0 ? void 0 : _a.label;
     }
     savePage() {
         const page = this.pageForm.value;
@@ -1146,7 +1147,7 @@ class PermissionsComponent {
         this.pages = this.duplicatepages.filter((a) => { var _a; return (_a = a === null || a === void 0 ? void 0 : a.name) === null || _a === void 0 ? void 0 : _a.toLowerCase().startsWith(value); });
     }
     onModelPermission(value) {
-        this.modelPermissiomName = value.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+        this.modelPermissiomName = value === null || value === void 0 ? void 0 : value.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
     }
 }
 PermissionsComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "12.2.17", ngImport: i0, type: PermissionsComponent, deps: [{ token: i0.Injector }, { token: RbacService }, { token: i2.FormBuilder }, { token: AlertService }, { token: i4.ConfirmationService }, { token: ShareDataService }, { token: DataStoreService }], target: i0.ɵɵFactoryTarget.Component });

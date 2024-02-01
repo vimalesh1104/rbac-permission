@@ -1313,11 +1313,12 @@
             this.iconList = this.dublicateIconList.filter(function (a) { var _a; return (_a = a === null || a === void 0 ? void 0 : a.label) === null || _a === void 0 ? void 0 : _a.toLowerCase().startsWith(value); });
         };
         PermissionsComponent.prototype.getSelectedLabel = function (val) {
+            var _a;
             this.iconList = this.dublicateIconList;
             console.log(val);
             var filteredIcon = this.iconList.filter(function (i) { return i.value === val; });
             console.log(filteredIcon);
-            this.selectedIconLabel = filteredIcon[0].label;
+            this.selectedIconLabel = (_a = filteredIcon[0]) === null || _a === void 0 ? void 0 : _a.label;
         };
         PermissionsComponent.prototype.savePage = function () {
             var _this = this;
@@ -1657,7 +1658,7 @@
             this.pages = this.duplicatepages.filter(function (a) { var _a; return (_a = a === null || a === void 0 ? void 0 : a.name) === null || _a === void 0 ? void 0 : _a.toLowerCase().startsWith(value); });
         };
         PermissionsComponent.prototype.onModelPermission = function (value) {
-            this.modelPermissiomName = value.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
+            this.modelPermissiomName = value === null || value === void 0 ? void 0 : value.replace(/\w\S*/g, function (txt) { return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(); });
         };
         return PermissionsComponent;
     }());
