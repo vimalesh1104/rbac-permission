@@ -53,6 +53,7 @@ export declare class PermissionsComponent implements OnInit {
     dublicateIconList: any[];
     treeData: any[];
     search: FormControl;
+    selectedMenuType: any;
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;
@@ -69,6 +70,8 @@ export declare class PermissionsComponent implements OnInit {
     savePage(): void;
     savePermission(page?: any): void;
     clearForm(): void;
+    selectType(type: any, event: any): void;
+    addMenu(): void;
     resetForm(): void;
     removeThumbnail(): void;
     createPermissionForm(): void;
@@ -77,6 +80,7 @@ export declare class PermissionsComponent implements OnInit {
     private loadTree;
     cancel(): void;
     deleteItem(): void;
+    deletePermission(): void;
     requiredIfValidator(predicate: () => any): (formControl: AbstractControl) => import("@angular/forms").ValidationErrors;
     handleFileInput(fileValue: any): void;
     validateImage(file: any): boolean;
