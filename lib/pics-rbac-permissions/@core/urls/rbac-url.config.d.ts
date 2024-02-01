@@ -74,7 +74,6 @@ export declare class AccessManagementConfig {
         Organization: {
             getOrganizationList: string;
             getOrganization: string;
-            getPlatformPage: string;
         };
     };
 }
