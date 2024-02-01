@@ -60,11 +60,17 @@ export declare class PermissionsComponent implements OnInit {
         name: string;
         value: string;
     }[];
+    menutype: {
+        name: string;
+        value: string;
+    }[];
+    hidePage: boolean;
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     loadInitial(): void;
     initializePageForm(): void;
+    menuTypeChange(e: any): void;
     initializePermissionForm(): void;
     buildTree(pages: any[], parentid: any): any[];
     onNodeContextMenuSelect(_event: any): void;
@@ -78,7 +84,7 @@ export declare class PermissionsComponent implements OnInit {
     clearForm(): void;
     selectType(type: any, event: any): void;
     setPlatformPageList(): void;
-    setPageType(): void;
+    setMenuType(): void;
     resetMenu(): void;
     resetForm(): void;
     removeThumbnail(): void;
