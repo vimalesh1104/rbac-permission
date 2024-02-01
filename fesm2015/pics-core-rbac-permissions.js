@@ -670,7 +670,7 @@ class PermissionsComponent {
         this.dublicateIconList = [];
         this.treeData = [];
         this.showDeleteBtn = false;
-        this.hidePage = false;
+        this.hidePage = true;
         this.nodeType = 'page';
         this.saveMode = 'INSERT';
         this.sanitizer = injector.get(DomSanitizer);
@@ -732,7 +732,7 @@ class PermissionsComponent {
             ismenu: [false],
             thumbnail: [''],
             icon: ['', Validators.required],
-            pageTypeMenu: ['platform'],
+            pageTypeMenu: [''],
             menuTypeList: ['']
         });
     }
@@ -740,14 +740,14 @@ class PermissionsComponent {
         const pagetype = this.pageForm.getRawValue();
         if (e.value == 'page' && pagetype.pageTypeMenu == 'platform') {
             this.showLinkPage = false;
-            this.hidePage = false;
+            this.hidePage = true;
         }
         else if (e.value == 'page' && pagetype.pageTypeMenu == 'dynamic') {
             this.showLinkPage = true;
-            this.hidePage = false;
+            this.hidePage = true;
         }
         else if (e.value == 'parent') {
-            this.hidePage = true;
+            this.hidePage = false;
             this.showLinkPage = false;
         }
     }

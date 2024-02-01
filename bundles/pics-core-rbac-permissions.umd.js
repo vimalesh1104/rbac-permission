@@ -1171,7 +1171,7 @@
             this.dublicateIconList = [];
             this.treeData = [];
             this.showDeleteBtn = false;
-            this.hidePage = false;
+            this.hidePage = true;
             this.nodeType = 'page';
             this.saveMode = 'INSERT';
             this.sanitizer = injector.get(platformBrowser.DomSanitizer);
@@ -1235,7 +1235,7 @@
                 ismenu: [false],
                 thumbnail: [''],
                 icon: ['', i2.Validators.required],
-                pageTypeMenu: ['platform'],
+                pageTypeMenu: [''],
                 menuTypeList: ['']
             });
         };
@@ -1243,14 +1243,14 @@
             var pagetype = this.pageForm.getRawValue();
             if (e.value == 'page' && pagetype.pageTypeMenu == 'platform') {
                 this.showLinkPage = false;
-                this.hidePage = false;
+                this.hidePage = true;
             }
             else if (e.value == 'page' && pagetype.pageTypeMenu == 'dynamic') {
                 this.showLinkPage = true;
-                this.hidePage = false;
+                this.hidePage = true;
             }
             else if (e.value == 'parent') {
-                this.hidePage = true;
+                this.hidePage = false;
                 this.showLinkPage = false;
             }
         };
