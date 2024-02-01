@@ -70,7 +70,6 @@ export declare class PermissionsComponent implements OnInit {
     ngOnDestroy(): void;
     loadInitial(): void;
     initializePageForm(): void;
-    menuTypeChange(e: any): void;
     initializePermissionForm(): void;
     buildTree(pages: any[], parentid: any): any[];
     onNodeContextMenuSelect(_event: any): void;
