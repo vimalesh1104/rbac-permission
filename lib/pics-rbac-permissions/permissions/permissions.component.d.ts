@@ -1,5 +1,5 @@
 import { Injector, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ConfirmationService, MenuItem, TreeNode } from 'primeng/api';
 import { AlertService } from '../@core/service/alert.service';
@@ -51,14 +51,18 @@ export declare class PermissionsComponent implements OnInit {
     iconList: any;
     selectedIconLabel: any;
     dublicateIconList: any[];
+    treeData: any[];
+    search: FormControl;
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     loadInitial(): void;
     initializePageForm(): void;
     initializePermissionForm(): void;
+    buildTree(pages: any[], parentid: any): any[];
     onNodeContextMenuSelect(_event: any): void;
     nodeSelect(event: any): void;
+    onNodeExpandClick(event: any, node: any): void;
     nodeExpand(event: any): void;
     searchIconList(event: Event): void;
     getSelectedLabel(val: any): void;
