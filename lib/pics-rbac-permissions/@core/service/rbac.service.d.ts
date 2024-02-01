@@ -46,7 +46,6 @@ export declare class RbacService {
     getPermissionTree(pageid: any, parentid: any): any;
     getPermissionTypes(applicationid: any): any;
     getOrganizationPage(orgId: any): any;
-    getPlatformPage(): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<RbacService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<RbacService>;
 }
