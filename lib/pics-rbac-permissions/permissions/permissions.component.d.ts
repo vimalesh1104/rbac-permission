@@ -72,6 +72,7 @@ export declare class PermissionsComponent implements OnInit {
     initializePageForm(): void;
     initializePermissionForm(): void;
     buildTree(pages: any[], parentid: any, isSearch: boolean): any[];
+    clearsearch(element: any): void;
     onNodeContextMenuSelect(_event: any): void;
     nodeSelect(event: any): void;
     onNodeExpandClick(event: any, node: any): void;
