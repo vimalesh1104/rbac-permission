@@ -1427,6 +1427,7 @@
         };
         PermissionsComponent.prototype.selectType = function (type, event) {
             console.log(event, "radio event");
+            this.formSubmit = false;
             if (type === 'platform') {
                 this.showLinkPage = false;
                 this.pageForm.patchValue({
@@ -1444,7 +1445,6 @@
                 this.saveMode = 'INSERT';
                 this.nodeType = 'page';
                 this.clearForm();
-                this.formSubmit = false;
             }
         };
         PermissionsComponent.prototype.setPlatformPageList = function () {

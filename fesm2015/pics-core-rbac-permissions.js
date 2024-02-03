@@ -917,6 +917,7 @@ class PermissionsComponent {
     }
     selectType(type, event) {
         console.log(event, "radio event");
+        this.formSubmit = false;
         if (type === 'platform') {
             this.showLinkPage = false;
             this.pageForm.patchValue({
@@ -934,7 +935,6 @@ class PermissionsComponent {
             this.saveMode = 'INSERT';
             this.nodeType = 'page';
             this.clearForm();
-            this.formSubmit = false;
         }
     }
     setPlatformPageList() {
