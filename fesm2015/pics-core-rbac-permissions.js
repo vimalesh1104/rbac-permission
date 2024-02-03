@@ -728,11 +728,11 @@ class PermissionsComponent {
             parentid: [null],
             applicationid: [this.environment ? this.environment['applicationid'] : ''],
             name: ['', Validators.required],
-            route: ['', Validators.required],
+            route: [null, Validators.required],
             order: [0],
             ismenu: [true],
             thumbnail: [''],
-            icon: ['', Validators.required],
+            icon: [null, Validators.required],
             pageTypeMenu: ['platform'],
         });
     }
@@ -782,6 +782,7 @@ class PermissionsComponent {
         this.showDeleteBtn = true;
         this.showLinkPage = false;
         this.nodeType = event.node.type;
+        this.pages.filter(p => p['parentid'] != event.node.id);
         if (event.node.type === 'permission') {
             this.permissionForm.reset();
             this.permissionForm.patchValue(event.node);

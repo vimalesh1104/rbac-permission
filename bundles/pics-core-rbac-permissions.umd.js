@@ -1231,11 +1231,11 @@
                 parentid: [null],
                 applicationid: [this.environment ? this.environment['applicationid'] : ''],
                 name: ['', i2.Validators.required],
-                route: ['', i2.Validators.required],
+                route: [null, i2.Validators.required],
                 order: [0],
                 ismenu: [true],
                 thumbnail: [''],
-                icon: ['', i2.Validators.required],
+                icon: [null, i2.Validators.required],
                 pageTypeMenu: ['platform'],
             });
         };
@@ -1286,6 +1286,7 @@
             this.showDeleteBtn = true;
             this.showLinkPage = false;
             this.nodeType = event.node.type;
+            this.pages.filter(function (p) { return p['parentid'] != event.node.id; });
             if (event.node.type === 'permission') {
                 this.permissionForm.reset();
                 this.permissionForm.patchValue(event.node);
