@@ -81,6 +81,9 @@ export declare class PermissionsComponent implements OnInit {
     searchIconList(event: Event): void;
     getSelectedLabel(val: any): void;
     savePage(): void;
+    get formValidate(): {
+        [key: string]: AbstractControl;
+    };
     savePermission(page?: any): void;
     clearForm(): void;
     selectType(type: any, event: any): void;
