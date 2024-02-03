@@ -934,6 +934,7 @@ class PermissionsComponent {
             this.saveMode = 'INSERT';
             this.nodeType = 'page';
             this.clearForm();
+            this.formSubmit = false;
         }
     }
     setPlatformPageList() {

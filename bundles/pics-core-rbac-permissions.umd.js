@@ -1444,6 +1444,7 @@
                 this.saveMode = 'INSERT';
                 this.nodeType = 'page';
                 this.clearForm();
+                this.formSubmit = false;
             }
         };
         PermissionsComponent.prototype.setPlatformPageList = function () {
