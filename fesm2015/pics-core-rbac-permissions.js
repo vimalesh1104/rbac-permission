@@ -782,7 +782,7 @@ class PermissionsComponent {
         this.showDeleteBtn = true;
         this.showLinkPage = false;
         this.nodeType = event.node.type;
-        this.pages.filter(p => p['parentid'] != event.node.id);
+        this.pages = this.pages.filter(p => p['parentid'] !== event.node.id);
         if (event.node.type === 'permission') {
             this.permissionForm.reset();
             this.permissionForm.patchValue(event.node);
