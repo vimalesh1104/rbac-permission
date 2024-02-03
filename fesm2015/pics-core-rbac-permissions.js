@@ -779,6 +779,7 @@ class PermissionsComponent {
     nodeSelect(event) {
         var _a, _b, _c, _d, _e, _f;
         this.saveMode = 'UPDATE';
+        this.pages = this.filteredParentPages;
         this.showDeleteBtn = true;
         this.showLinkPage = false;
         this.nodeType = event.node.type;
@@ -1074,7 +1075,7 @@ class PermissionsComponent {
     loadTree() {
         this.permissionService.getAllPageTree(this.environment.applicationid).subscribe((items) => {
             this.pages = items.sort((a, b) => a.name.localeCompare(b.name));
-            ;
+            this.filteredParentPages = this.pages;
             this.duplicatepages = items;
             if (this.pages.length) {
                 this.selectedItem = this.pages[0];

@@ -66,6 +66,7 @@ export declare class PermissionsComponent implements OnInit {
     }[];
     hidePage: boolean;
     formSubmit: boolean;
+    filteredParentPages: TreeNode<any>[];
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;

@@ -1283,6 +1283,7 @@
         PermissionsComponent.prototype.nodeSelect = function (event) {
             var _a, _b, _c, _d, _e, _f;
             this.saveMode = 'UPDATE';
+            this.pages = this.filteredParentPages;
             this.showDeleteBtn = true;
             this.showLinkPage = false;
             this.nodeType = event.node.type;
@@ -1588,7 +1589,7 @@
             var _this = this;
             this.permissionService.getAllPageTree(this.environment.applicationid).subscribe(function (items) {
                 _this.pages = items.sort(function (a, b) { return a.name.localeCompare(b.name); });
-                ;
+                _this.filteredParentPages = _this.pages;
                 _this.duplicatepages = items;
                 if (_this.pages.length) {
                     _this.selectedItem = _this.pages[0];
