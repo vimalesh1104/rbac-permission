@@ -1365,8 +1365,9 @@
                         _this.alertService.success('Menu created successfully.');
                         _this.loadTree();
                     }, function (error) {
-                        if (error && error.message.includes('already exists')) {
-                            _this.alertService.error("Menu '" + page.name + "' already exists.");
+                        var _a;
+                        if (error && ((_a = error === null || error === void 0 ? void 0 : error.error) === null || _a === void 0 ? void 0 : _a.message.includes('already exists'))) {
+                            _this.alertService.error("Menu '" + (page === null || page === void 0 ? void 0 : page.name) + "' already exists.");
                         }
                         else {
                             _this.alertService.error('An error occurred.');
