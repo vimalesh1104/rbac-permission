@@ -1386,6 +1386,7 @@
                 }
                 else {
                     this.permissionService.updatePage(page).subscribe(function () {
+                        _this.savePermission(page);
                         _this.alertService.success('Menu updated successfully.');
                         _this.loadTree();
                         _this.resetMenu();

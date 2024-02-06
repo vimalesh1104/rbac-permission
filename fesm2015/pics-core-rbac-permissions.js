@@ -881,6 +881,7 @@ class PermissionsComponent {
             }
             else {
                 this.permissionService.updatePage(page).subscribe(() => {
+                    this.savePermission(page);
                     this.alertService.success('Menu updated successfully.');
                     this.loadTree();
                     this.resetMenu();
