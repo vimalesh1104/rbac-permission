@@ -937,6 +937,10 @@ class PermissionsComponent {
     selectType(type, event) {
         console.log(event, "radio event");
         this.formSubmit = false;
+        this.dublicateIconList = this.iconList;
+        this.pages = this.filteredParentPages;
+        this.duplicatePlatformPagesList = this.platformPagesList;
+        this.duplicateDynamicPagesList = this.pagesList;
         if (type === 'platform') {
             this.showLinkPage = false;
             this.pageForm.patchValue({
@@ -977,6 +981,10 @@ class PermissionsComponent {
         this.showDeleteBtn = false;
         this.saveMode = 'INSERT';
         this.nodeType = 'page';
+        this.dublicateIconList = this.iconList;
+        this.pages = this.filteredParentPages;
+        this.duplicatePlatformPagesList = this.platformPagesList;
+        this.duplicateDynamicPagesList = this.pagesList;
         this.imageInformation = '';
         this.pageForm.patchValue({
             pageTypeMenu: 'platform'
