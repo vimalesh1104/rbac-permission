@@ -1,6 +1,6 @@
 {
   "name": "@pics-core/rbac-permissions",
-  "version": "1.0.1-OR.16",
+  "version": "1.0.1-OR.17",
   "description": "This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0.",
   "directories": {
     "lib": "lib"
@@ -28,5 +28,8 @@
   "esm2015": "esm2015/pics-core-rbac-permissions.js",
   "fesm2015": "fesm2015/pics-core-rbac-permissions.js",
   "typings": "pics-core-rbac-permissions.d.ts",
-  "sideEffects": false
+  "sideEffects": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }

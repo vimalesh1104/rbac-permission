@@ -1380,7 +1380,7 @@
                             _this.alertService.error("Menu '" + (page === null || page === void 0 ? void 0 : page.name) + "' already exists.");
                         }
                         else {
-                            _this.alertService.error('An error occurred.');
+                            _this.alertService.error(AppConstants.errorMessage);
                         }
                     });
                 }
@@ -1420,14 +1420,14 @@
                 delete permission.readonly;
                 if (this.saveMode === 'INSERT') {
                     this.permissionService.createPermission(permission).subscribe(function () {
-                        _this.alertService.success('Permission created successfully.');
+                        // this.alertService.success('Permission created successfully.');
                         _this.loadTree();
                         _this.resetMenu();
                     });
                 }
                 else {
                     this.permissionService.updatePermission(permission).subscribe(function () {
-                        _this.alertService.success('Permission updated successfully.');
+                        // this.alertService.success('Permission updated successfully.');
                         _this.loadTree();
                     });
                 }

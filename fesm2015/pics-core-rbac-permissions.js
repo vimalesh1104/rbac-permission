@@ -875,7 +875,7 @@ class PermissionsComponent {
                         this.alertService.error(`Menu '${page === null || page === void 0 ? void 0 : page.name}' already exists.`);
                     }
                     else {
-                        this.alertService.error('An error occurred.');
+                        this.alertService.error(AppConstants.errorMessage);
                     }
                 });
             }
@@ -910,14 +910,14 @@ class PermissionsComponent {
             delete permission.readonly;
             if (this.saveMode === 'INSERT') {
                 this.permissionService.createPermission(permission).subscribe(() => {
-                    this.alertService.success('Permission created successfully.');
+                    // this.alertService.success('Permission created successfully.');
                     this.loadTree();
                     this.resetMenu();
                 });
             }
             else {
                 this.permissionService.updatePermission(permission).subscribe(() => {
-                    this.alertService.success('Permission updated successfully.');
+                    // this.alertService.success('Permission updated successfully.');
                     this.loadTree();
                 });
             }
