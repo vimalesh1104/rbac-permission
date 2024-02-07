@@ -69,6 +69,7 @@ export declare class PermissionsComponent implements OnInit {
     filteredParentPages: TreeNode<any>[];
     duplicateDynamicPagesList: any;
     duplicatePlatformPagesList: any;
+    selectedPagePermission: any;
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;

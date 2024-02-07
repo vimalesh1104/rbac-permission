@@ -1291,6 +1291,7 @@
             this.showLinkPage = false;
             this.nodeType = event.node.type;
             this.pages = this.pages.filter(function (p) { return p['parentid'] !== event.node.id; });
+            this.selectedPagePermission = this.permissions.filter(function (p) { return p.pageid === event.node.id; });
             if (event.node.type === 'permission') {
                 this.permissionForm.reset();
                 this.permissionForm.patchValue(event.node);
@@ -1386,7 +1387,8 @@
                 }
                 else {
                     this.permissionService.updatePage(page).subscribe(function () {
-                        _this.savePermission(page);
+                        var pageDet = Object.assign(Object.assign({}, page), { pagePermissionId: _this.selectedPagePermission[0].id });
+                        _this.savePermission(pageDet);
                         _this.alertService.success('Menu updated successfully.');
                         _this.loadTree();
                         _this.resetMenu();
@@ -1405,6 +1407,7 @@
             var _this = this;
             if (page) {
                 this.permissionForm.patchValue({
+                    id: (page === null || page === void 0 ? void 0 : page.pagePermissionId) ? page === null || page === void 0 ? void 0 : page.pagePermissionId : 0,
                     description: page.name,
                     key: page.name.toUpperCase().replaceAll(' ', '_'),
                     pageid: page.id,
@@ -1413,9 +1416,12 @@
                 });
             }
             var permission = Object.assign(Object.assign({}, this.permissionForm.value), { order: +this.permissionForm.value.order });
-            if (!permission.id) {
-                permission = Object.assign(Object.assign({}, permission), { id: 0 });
-            }
+            // if (!permission.id) {
+            //   permission = {
+            //     ...permission,
+            //     id: 0
+            //   }
+            // }
             if (this.permissionForm.valid) {
                 permission.order = permission.order ? Number(permission.order) : 1;
                 delete permission.readonly;
@@ -1429,6 +1435,7 @@
                 else {
                     this.permissionService.updatePermission(permission).subscribe(function () {
                         // this.alertService.success('Permission updated successfully.');
+                        _this.selectedPagePermission = '';
                         _this.loadTree();
                     });
                 }

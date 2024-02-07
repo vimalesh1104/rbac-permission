@@ -787,6 +787,7 @@ class PermissionsComponent {
         this.showLinkPage = false;
         this.nodeType = event.node.type;
         this.pages = this.pages.filter(p => p['parentid'] !== event.node.id);
+        this.selectedPagePermission = this.permissions.filter((p) => p.pageid === event.node.id);
         if (event.node.type === 'permission') {
             this.permissionForm.reset();
             this.permissionForm.patchValue(event.node);
@@ -881,7 +882,8 @@ class PermissionsComponent {
             }
             else {
                 this.permissionService.updatePage(page).subscribe(() => {
-                    this.savePermission(page);
+                    let pageDet = Object.assign(Object.assign({}, page), { pagePermissionId: this.selectedPagePermission[0].id });
+                    this.savePermission(pageDet);
                     this.alertService.success('Menu updated successfully.');
                     this.loadTree();
                     this.resetMenu();
@@ -895,6 +897,7 @@ class PermissionsComponent {
     savePermission(page) {
         if (page) {
             this.permissionForm.patchValue({
+                id: (page === null || page === void 0 ? void 0 : page.pagePermissionId) ? page === null || page === void 0 ? void 0 : page.pagePermissionId : 0,
                 description: page.name,
                 key: page.name.toUpperCase().replaceAll(' ', '_'),
                 pageid: page.id,
@@ -903,9 +906,12 @@ class PermissionsComponent {
             });
         }
         let permission = Object.assign(Object.assign({}, this.permissionForm.value), { order: +this.permissionForm.value.order });
-        if (!permission.id) {
-            permission = Object.assign(Object.assign({}, permission), { id: 0 });
-        }
+        // if (!permission.id) {
+        //   permission = {
+        //     ...permission,
+        //     id: 0
+        //   }
+        // }
         if (this.permissionForm.valid) {
             permission.order = permission.order ? Number(permission.order) : 1;
             delete permission.readonly;
@@ -919,6 +925,7 @@ class PermissionsComponent {
             else {
                 this.permissionService.updatePermission(permission).subscribe(() => {
                     // this.alertService.success('Permission updated successfully.');
+                    this.selectedPagePermission = '';
                     this.loadTree();
                 });
             }
