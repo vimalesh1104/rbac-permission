@@ -70,6 +70,7 @@ export declare class PermissionsComponent implements OnInit {
     duplicateDynamicPagesList: any;
     duplicatePlatformPagesList: any;
     selectedPagePermission: any;
+    eventNode: any;
     constructor(injector: Injector, permissionService: RbacService, formBuilder: FormBuilder, alertService: AlertService, confirmationService: ConfirmationService, _shareData: ShareDataService, _storeservice: DataStoreService);
     ngOnInit(): void;
     ngOnDestroy(): void;
