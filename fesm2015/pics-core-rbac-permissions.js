@@ -780,7 +780,7 @@ class PermissionsComponent {
     nodeSelect(event, isFromNode) {
         var _a, _b, _c, _d, _e, _f;
         // this.saveMode = isFromNode && this.eventNode ?  'UPDATE' : 'INSERT';
-        this.eventNode = event.node;
+        this.eventNode = event.node ? event.node : '';
         if (isFromNode && this.eventNode) {
             this.saveMode = 'UPDATE';
         }
@@ -795,33 +795,35 @@ class PermissionsComponent {
         this.duplicateDynamicPagesList = this.pagesList;
         this.showDeleteBtn = true;
         this.showLinkPage = false;
-        this.nodeType = event.node.type;
-        this.pages = this.pages.filter(p => p['parentid'] !== event.node.id);
-        this.selectedPagePermission = this.permissions.filter((p) => p.pageid === event.node.id);
-        if (event.node.type === 'permission') {
-            this.permissionForm.reset();
-            this.permissionForm.patchValue(event.node);
-        }
-        else {
-            this.pageForm.reset();
-            this.pageForm.patchValue(event.node);
-            this.getSelectedLabel((_b = (_a = event.node) === null || _a === void 0 ? void 0 : _a.additionalinfo) === null || _b === void 0 ? void 0 : _b.icon);
-            this.pageForm.patchValue({
-                icon: ((_c = event.node.additionalinfo) === null || _c === void 0 ? void 0 : _c.icon) || ''
-            });
-            this.pageForm.patchValue({
-                pageTypeMenu: 'platform'
-            });
-            if (event.node.route.includes('/pages/dynamic-search/search')) {
-                this.showLinkPage = true;
-                this.pageForm.patchValue({
-                    pageTypeMenu: 'dynamic'
-                });
-                this.pageForm.patchValue({
-                    route: event.node.route.split('/')[4]
-                });
+        if (event) {
+            this.nodeType = event.node.type;
+            this.pages = this.pages.filter(p => p['parentid'] !== event.node.id);
+            this.selectedPagePermission = this.permissions.filter((p) => p.pageid === event.node.id);
+            if (event.node.type === 'permission') {
+                this.permissionForm.reset();
+                this.permissionForm.patchValue(event.node);
             }
-            this.imageInformation = ((_f = (_e = (_d = event.node.additionalinfo) === null || _d === void 0 ? void 0 : _d.thumbnail) === null || _e === void 0 ? void 0 : _e.fileName) === null || _f === void 0 ? void 0 : _f.split('/')[1]) || '';
+            else {
+                this.pageForm.reset();
+                this.pageForm.patchValue(event.node);
+                this.getSelectedLabel((_b = (_a = event.node) === null || _a === void 0 ? void 0 : _a.additionalinfo) === null || _b === void 0 ? void 0 : _b.icon);
+                this.pageForm.patchValue({
+                    icon: ((_c = event.node.additionalinfo) === null || _c === void 0 ? void 0 : _c.icon) || ''
+                });
+                this.pageForm.patchValue({
+                    pageTypeMenu: 'platform'
+                });
+                if (event.node.route.includes('/pages/dynamic-search/search')) {
+                    this.showLinkPage = true;
+                    this.pageForm.patchValue({
+                        pageTypeMenu: 'dynamic'
+                    });
+                    this.pageForm.patchValue({
+                        route: event.node.route.split('/')[4]
+                    });
+                }
+                this.imageInformation = ((_f = (_e = (_d = event.node.additionalinfo) === null || _d === void 0 ? void 0 : _d.thumbnail) === null || _e === void 0 ? void 0 : _e.fileName) === null || _f === void 0 ? void 0 : _f.split('/')[1]) || '';
+            }
         }
     }
     onNodeExpandClick(event, node) {
