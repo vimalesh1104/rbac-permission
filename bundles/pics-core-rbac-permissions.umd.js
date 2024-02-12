@@ -1299,7 +1299,7 @@
             this.duplicateDynamicPagesList = this.pagesList;
             this.showDeleteBtn = true;
             this.showLinkPage = false;
-            if (event) {
+            if (this.eventNode) {
                 this.nodeType = event.node.type;
                 this.pages = this.pages.filter(function (p) { return p['parentid'] !== event.node.id; });
                 this.selectedPagePermission = this.permissions.filter(function (p) { return p.pageid === event.node.id; });

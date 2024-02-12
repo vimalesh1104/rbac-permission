@@ -795,7 +795,7 @@ class PermissionsComponent {
         this.duplicateDynamicPagesList = this.pagesList;
         this.showDeleteBtn = true;
         this.showLinkPage = false;
-        if (event) {
+        if (this.eventNode) {
             this.nodeType = event.node.type;
             this.pages = this.pages.filter(p => p['parentid'] !== event.node.id);
             this.selectedPagePermission = this.permissions.filter((p) => p.pageid === event.node.id);
