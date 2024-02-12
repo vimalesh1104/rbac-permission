@@ -780,6 +780,7 @@ class PermissionsComponent {
     nodeSelect(event, isFromNode) {
         var _a, _b, _c, _d, _e, _f;
         // this.saveMode = isFromNode && this.eventNode ?  'UPDATE' : 'INSERT';
+        this.eventNode = event.node;
         if (isFromNode && this.eventNode) {
             this.saveMode = 'UPDATE';
         }
@@ -794,7 +795,6 @@ class PermissionsComponent {
         this.duplicateDynamicPagesList = this.pagesList;
         this.showDeleteBtn = true;
         this.showLinkPage = false;
-        this.eventNode = event.node;
         this.nodeType = event.node.type;
         this.pages = this.pages.filter(p => p['parentid'] !== event.node.id);
         this.selectedPagePermission = this.permissions.filter((p) => p.pageid === event.node.id);
