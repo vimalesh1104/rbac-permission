@@ -80,7 +80,7 @@ export declare class PermissionsComponent implements OnInit {
     buildTree(pages: any[], parentid: any, isSearch: boolean): any[];
     clearsearch(): void;
     onNodeContextMenuSelect(_event: any): void;
-    nodeSelect(event: any): void;
+    nodeSelect(event: any, isFromNode: any): void;
     onNodeExpandClick(event: any, node: any): void;
     nodeExpand(event: any): void;
     searchIconList(event: Event): void;
