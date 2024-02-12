@@ -779,7 +779,7 @@ class PermissionsComponent {
     }
     nodeSelect(event, isFromNode) {
         var _a, _b, _c, _d, _e, _f;
-        this.saveMode = isFromNode ? 'UPDATE' : 'INSERT';
+        this.saveMode = isFromNode && this.eventNode ? 'UPDATE' : 'INSERT';
         this.pages = this.filteredParentPages;
         this.duplicatePlatformPagesList = this.platformPagesList;
         this.duplicateDynamicPagesList = this.pagesList;
