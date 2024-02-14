@@ -752,7 +752,24 @@
         { label: 'Toolbar', value: 'toolbar' },
         { label: 'User List', value: 'patient_list' },
         { label: 'Tabs', value: 'tabs' },
+        { label: 'Single Tab', value: 'tab' },
         { label: 'Shelf Position', value: 'shelf_position' },
+        { label: 'Call', value: 'call' },
+        { label: 'Bookmark', value: 'bookmark' },
+        { label: 'Map', value: 'map' },
+        { label: 'Book', value: 'book' },
+        { label: 'Box', value: 'box' },
+        { label: 'Lock', value: 'lock' },
+        { label: 'Star', value: 'star' },
+        { label: 'Menu', value: 'menu' },
+        { label: 'School', value: 'school' },
+        { label: 'Calendar', value: 'calendar_month' },
+        { label: 'Circle', value: 'circle' },
+        { label: 'Home', value: 'home' },
+        { label: 'Bulleted List', value: 'format_list_bulleted' },
+        { label: 'Database', value: 'database' },
+        { label: 'View Timeline', value: 'view_timeline' },
+        { label: 'Settings Account Box', value: 'settings_account_box' },
         { label: 'Iframe', value: 'iframe' },
         { label: 'Bottom Panel Close', value: 'bottom_panel_close' },
         { label: 'Bubbles', value: 'bubbles' },
@@ -1360,9 +1377,8 @@
         PermissionsComponent.prototype.getSelectedLabel = function (val) {
             var _a;
             this.dublicateIconList = this.iconList;
-            console.log(val);
-            var filteredIcon = this.iconList.filter(function (i) { return i.value === val; });
-            console.log(filteredIcon);
+            var iconVal = val.toLowerCase().replace(/[A-Z]/g, function (char) { return char.toLowerCase(); });
+            var filteredIcon = this.iconList.filter(function (i) { return i.value === iconVal; });
             this.selectedIconLabel = (_a = filteredIcon[0]) === null || _a === void 0 ? void 0 : _a.label;
         };
         PermissionsComponent.prototype.savePage = function () {

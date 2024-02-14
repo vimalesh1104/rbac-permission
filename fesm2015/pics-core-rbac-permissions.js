@@ -275,7 +275,24 @@ AppConstants.iconList = [
     { label: 'Toolbar', value: 'toolbar' },
     { label: 'User List', value: 'patient_list' },
     { label: 'Tabs', value: 'tabs' },
+    { label: 'Single Tab', value: 'tab' },
     { label: 'Shelf Position', value: 'shelf_position' },
+    { label: 'Call', value: 'call' },
+    { label: 'Bookmark', value: 'bookmark' },
+    { label: 'Map', value: 'map' },
+    { label: 'Book', value: 'book' },
+    { label: 'Box', value: 'box' },
+    { label: 'Lock', value: 'lock' },
+    { label: 'Star', value: 'star' },
+    { label: 'Menu', value: 'menu' },
+    { label: 'School', value: 'school' },
+    { label: 'Calendar', value: 'calendar_month' },
+    { label: 'Circle', value: 'circle' },
+    { label: 'Home', value: 'home' },
+    { label: 'Bulleted List', value: 'format_list_bulleted' },
+    { label: 'Database', value: 'database' },
+    { label: 'View Timeline', value: 'view_timeline' },
+    { label: 'Settings Account Box', value: 'settings_account_box' },
     { label: 'Iframe', value: 'iframe' },
     { label: 'Bottom Panel Close', value: 'bottom_panel_close' },
     { label: 'Bubbles', value: 'bubbles' },
@@ -856,9 +873,8 @@ class PermissionsComponent {
     getSelectedLabel(val) {
         var _a;
         this.dublicateIconList = this.iconList;
-        console.log(val);
-        const filteredIcon = this.iconList.filter((i) => i.value === val);
-        console.log(filteredIcon);
+        const iconVal = val.toLowerCase().replace(/[A-Z]/g, (char) => char.toLowerCase());
+        const filteredIcon = this.iconList.filter((i) => i.value === iconVal);
         this.selectedIconLabel = (_a = filteredIcon[0]) === null || _a === void 0 ? void 0 : _a.label;
     }
     savePage() {
