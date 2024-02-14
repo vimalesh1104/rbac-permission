@@ -795,7 +795,7 @@ class PermissionsComponent {
         console.log();
     }
     nodeSelect(event, isFromNode) {
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g;
         this.eventNode = event.node ? event.node : '';
         if (isFromNode && this.eventNode) {
             this.saveMode = 'UPDATE';
@@ -822,9 +822,11 @@ class PermissionsComponent {
             else {
                 this.pageForm.reset();
                 this.pageForm.patchValue(event.node);
-                this.getSelectedLabel((_b = (_a = event.node) === null || _a === void 0 ? void 0 : _a.additionalinfo) === null || _b === void 0 ? void 0 : _b.icon);
+                this.pageForm.patchValue;
+                const iconVal = ((_b = (_a = event.node) === null || _a === void 0 ? void 0 : _a.additionalinfo) === null || _b === void 0 ? void 0 : _b.icon) ? (_d = (_c = event.node) === null || _c === void 0 ? void 0 : _c.additionalinfo) === null || _d === void 0 ? void 0 : _d.icon.toLowerCase().replace(/[A-Z]/g, (char) => char.toLowerCase()) : '';
+                this.getSelectedLabel(iconVal);
                 this.pageForm.patchValue({
-                    icon: ((_c = event.node.additionalinfo) === null || _c === void 0 ? void 0 : _c.icon) || ''
+                    icon: iconVal
                 });
                 this.pageForm.patchValue({
                     pageTypeMenu: 'platform'
@@ -838,7 +840,7 @@ class PermissionsComponent {
                         route: event.node.route.split('/')[4]
                     });
                 }
-                this.imageInformation = ((_f = (_e = (_d = event.node.additionalinfo) === null || _d === void 0 ? void 0 : _d.thumbnail) === null || _e === void 0 ? void 0 : _e.fileName) === null || _f === void 0 ? void 0 : _f.split('/')[1]) || '';
+                this.imageInformation = ((_g = (_f = (_e = event.node.additionalinfo) === null || _e === void 0 ? void 0 : _e.thumbnail) === null || _f === void 0 ? void 0 : _f.fileName) === null || _g === void 0 ? void 0 : _g.split('/')[1]) || '';
             }
         }
     }
@@ -873,8 +875,7 @@ class PermissionsComponent {
     getSelectedLabel(val) {
         var _a;
         this.dublicateIconList = this.iconList;
-        const iconVal = val.toLowerCase().replace(/[A-Z]/g, (char) => char.toLowerCase());
-        const filteredIcon = this.iconList.filter((i) => i.value === iconVal);
+        const filteredIcon = this.iconList.filter((i) => i.value === val);
         this.selectedIconLabel = (_a = filteredIcon[0]) === null || _a === void 0 ? void 0 : _a.label;
     }
     savePage() {
